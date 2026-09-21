@@ -1,10 +1,7 @@
 import React from 'react';
 import { ArrowRight, MapPin, SquareUser, Building2, Home as HomeIcon, Trees, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls } from '@react-three/drei';
 import EnquiryForm from '../components/EnquiryForm';
-import HouseModel from '../components/HouseModel';
 
 export default function Home() {
   // Animation variants for staggered scrolling effects
@@ -21,26 +18,10 @@ export default function Home() {
   return (
     <div className="bg-ivory">
       
-      {/* 1. HERO SECTION WITH 3D CANVAS */}
+      {/* 1. HERO SECTION */}
       <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-charcoal">
-        {/* Three.js 3D Background */}
-        <div className="absolute inset-0 z-0 opacity-70 cursor-move">
-          <Canvas camera={{ position: [0, 2, 8], fov: 45 }}>
-            <ambientLight intensity={0.6} />
-            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1.5} />
-            <Environment preset="city" />
-            <HouseModel />
-            <OrbitControls 
-              enableZoom={false} 
-              enablePan={false} 
-              autoRotate 
-              autoRotateSpeed={0.8}
-              maxPolarAngle={Math.PI / 2} // Prevents camera from going below ground
-            />
-          </Canvas>
-          {/* Subtle gradient overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-charcoal/40 pointer-events-none"></div>
-        </div>
+        {/* Background gradient overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/80 to-charcoal/40 pointer-events-none"></div>
 
         {/* Framer Motion UI Overlay */}
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto mt-20 pointer-events-none">

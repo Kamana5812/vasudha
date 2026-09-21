@@ -2,6 +2,10 @@
   "name": "vasudha",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cd client && npm run build"
+  },
   "dependencies": {
     "nodemailer": "^6.9.7"
   }

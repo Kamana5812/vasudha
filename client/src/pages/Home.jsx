@@ -13,11 +13,16 @@ export default function Home() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="bg-ivory">
       
       {/* 1. HERO SECTION WITH 3D CANVAS */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-charcoal">
+      <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-charcoal">
         {/* Three.js 3D Background */}
         <div className="absolute inset-0 z-0 opacity-70 cursor-move">
           <Canvas camera={{ position: [0, 2, 8], fov: 45 }}>
@@ -63,10 +68,10 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto"
           >
-            <button className="bg-gradient-to-r from-earthy to-gold text-white px-8 py-4 rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg font-semibold shadow-gold/20">
+            <button onClick={() => scrollTo('properties')} className="bg-gradient-to-r from-earthy to-gold text-white px-8 py-4 rounded-md transition-all duration-300 hover:scale-105 hover:shadow-lg text-lg font-semibold shadow-gold/20">
               Explore Properties
             </button>
-            <button className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-8 py-4 rounded-md transition-all duration-300 border border-white/30 text-lg font-medium">
+            <button onClick={() => scrollTo('contact')} className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-8 py-4 rounded-md transition-all duration-300 border border-white/30 text-lg font-medium">
               Talk to an Expert
             </button>
           </motion.div>
@@ -74,7 +79,7 @@ export default function Home() {
       </section>
 
       {/* 2. PROPERTY CATEGORIES */}
-      <section className="py-20 bg-ivory">
+      <section id="about" className="py-20 bg-ivory">
         <div className="container mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
@@ -100,7 +105,7 @@ export default function Home() {
       </section>
 
       {/* 3. FEATURED PROPERTIES */}
-      <section className="py-24 bg-white">
+      <section id="properties" className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div 
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}
@@ -132,7 +137,7 @@ export default function Home() {
                   <p className="text-earthy font-medium mb-4">{prop.type}</p>
                   <div className="flex justify-between items-center border-t border-gray-200 pt-4 mt-2">
                     <span className="text-xl font-bold text-charcoal">{prop.price}</span>
-                    <button className="text-gold hover:text-earthy flex items-center gap-1 transition-colors font-medium">
+                    <button onClick={() => scrollTo('contact')} className="text-gold hover:text-earthy flex items-center gap-1 transition-colors font-medium">
                       Details <ArrowRight size={16} />
                     </button>
                   </div>
@@ -144,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* 4. ENQUIRY SECTION */}
-      <section className="py-24 bg-charcoal text-ivory relative overflow-hidden">
+      <section id="contact" className="py-24 bg-charcoal text-ivory relative overflow-hidden">
         {/* Decorative background element */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3"></div>
         

@@ -1,2 +1,3 @@
-
 client/public/model.glb
+.env
+node_modules/

@@ -5,9 +5,9 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="min-h-screen bg-ivory text-charcoal font-sans flex flex-col">
+    <div className="min-h-screen bg-white text-navy font-sans flex flex-col">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-16">
         <Home />
       </main>
       <Footer />
